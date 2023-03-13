@@ -13,18 +13,20 @@ Navigate to the project directory:
 Open the terminal/command prompt and navigate to the directory where the project has been cloned. You can use the cd command to change directories.
 
 Create a virtual environment:
-
+P.S. NO NEED TO CREATE VIRTUAL ENV IF MY GIT ENV WORKS PROPERLY, FIRST TRY ACTIVATING THE ENV WHICH COMES WITH THIS PROJECT
 python -m venv env
 
 Activate the virtual environment:
 
-To activate the virtual environment, run the following command:
-
-source env/bin/activate
-
 If you're on Windows, use the following command instead:
 
-env\Scripts\activate
+use this command exactly, this is my env: myenv\Scripts\activate.bat
+if this doesn't work then create your own env with: python -m venv env
+
+To activate the virtual environment ON MAC, run the following command:
+
+source myenv/bin/activate
+
 
 Install dependencies:
 
