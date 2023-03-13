@@ -1,0 +1,38 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'website/style.css'%}">
+    <title>Food Tracker</title>
+</head>
+<body>
+    <nav style="background-color: #80A1D4; background-clip: content-box; ">
+        <ul style="display: flex; flex-direction: row; gap: 20px; list-style-type: none; justify-content: flex-end; margin: 20px; padding: 20px;">
+            <li><a href="{% url 'home'%}">Home</a></li>
+            <li ><a href="#">Symptoms Checker</a></li>
+            <li><a href="#">Medicine Delivery</a></li>
+            <li><a href="#">About Us</a></li>
+            <li><a href="#">Contact Us</a></li>
+            <li><a href="#">Pincode</a></li>
+            {% if user.is_authenticated %}
+            <li><a href="{% url 'logout' %}">Logout</a></li>
+            {% else %}
+            <li><a href="{% url 'login' %}">Login/Register</a></li>
+            {% endif %}
+            
+        </ul>
+    </nav>
+    <h1>Add Food Item</h1>
+<form method="post">
+  {% csrf_token %}
+  <label for="user">Username:</label>
+  <input type="text" id="user" name="user"><br>
+  <label for="food_item">Food Item:</label>
+  <input type="text" id="food_item" name="food_item"><br>
+  <input type="submit" value="Add">
+</form>
+</body>
+</html>

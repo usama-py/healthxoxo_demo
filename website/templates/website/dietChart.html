@@ -1,0 +1,99 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diet Chart</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+    
+	<link rel="stylesheet" href="{% static 'website/style.css'%}">
+</head>
+<body>
+    <nav style="background-color: #80A1D4; background-clip: content-box; ">
+        <ul style="display: flex; flex-direction: row; gap: 20px; list-style-type: none; justify-content: flex-end; margin: 20px; padding: 20px;">
+            <li><a href="{% url 'home'%}">Home</a></li>
+            <li ><a href="#">Symptoms Checker</a></li>
+            <li><a href="#">Medicine Delivery</a></li>
+            <li><a href="#">About Us</a></li>
+            <li><a href="#">Contact Us</a></li>
+            <li><a href="#">Pincode</a></li>
+            {% if user.is_authenticated %}
+            <li><a href="{% url 'logout' %}">Logout</a></li>
+            {% else %}
+            <li><a href="{% url 'login' %}">Login/Register</a></li>
+            {% endif %}
+            
+        </ul>
+    </nav>
+    
+
+    <header style="  display: grid; grid-template-columns: repeat(2,1fr); grid-template-areas: 'head image' 'disc image';" >
+        <h1 style="grid-area: head;">DIET CHART</h1>
+        <p style="grid-area: disc;">
+            A diet-chart is a set of guidelines for what one should or shouldn't eat for a healthy life. Diet Charts can be used to reference the nutritional information of various foods and to provide recommendations, guidelines, and ways to track a diet. In order to lead a healthy life, it is essential to follow a balanced diet. A balanced diet is associated with good health, prevention of diseases, and recovery from illness.
+        </p>
+        <img style=" grid-area: image; border-radius: 10%;" width="100%" src="{% static 'website/dietchart.avif'%}" alt="">
+        <a style=" background-color: #7E52A0; font-size: 40px; border: 1px solid blue; border-radius: 10%;" href="#">Start For Free</a>
+    </header>
+    
+
+    <main style="height: 80vh; background-color: aquamarine; display: flex; flex-wrap: wrap; justify-content: center;align-items: center;">
+        <h2 style="display: flex; justify-content: center;">See your progress</h2>
+        <p>
+            Health XOXO is not just tracking calories - It is getting smart about your diet and nutrition. Want to know exactly how much sodium you consumed today? Cholesterol? Sugar? Calcium? Health XOXO's daily nutrition charts and graphs give you everything you need to know. You get :
+
+        </p>
+
+        <div style="border-radius: 10%; flex: 1; margin: 0 5px; background-color: #f5f5f5; padding: 20px;">
+            <h3>Daily Nutrition Charts
+                <p style="font-size: medium;">In-depth analytics on your eating habits.
+                </p>
+            </h3>
+
+        </div>
+        <div style=" border-radius: 10%;flex: 1; margin: 0 5px; background-color: #dcdcdc; padding: 20px;">
+            <h3>Daily Caloric Breakdown Fat, Protein, Carbs
+                <p style="font-size: medium;">
+                    Find out if you're eating the round amount od macros.
+
+                </p>
+            </h3>
+        </div>
+        <div style="border-radius: 10%;flex: 1; margin: 0 5px; background-color: #f5f5f5; padding: 20px;">
+            <h3>Net Calories by Day, Week and More
+                <p style="font-size: medium;">
+                    
+                    Chart your progress over time and see your results.
+                </p>
+            </h3>
+        </div>
+    </main>
+    <footer>
+		<h1 class="col-1">HEALTH XOXO</h1>
+		<div class="col-2">SERVICES
+			<ul style=" margin: 10px; padding: 10px; list-style-type: none;">
+				<li><a href="#">24x7 Doctors</a></li>
+				<li><a href="#">24x7 Hospitals</a></li>
+				<li><a href="#">24x7 Ambulance</a></li>
+				<li><a href="#">Symptoms Checker</a></li>
+			</ul>
+		</div>
+		<div class="col-3">MEMBERSHIP
+			<ul style=" margin: 10px; padding: 10px; list-style-type: none;">
+				<li><a href="#">Free Trial</a></li>
+				<li><a href="#">Premium Membership</a></li>
+			</ul>
+		</div>
+		<div class="col-4">CUSTOMER CARE
+			<ul style=" margin: 10px; padding: 10px; list-style-type: none;">
+				<li><a href="#">Contact Us</a></li>
+				<li><a href="#">About Us</a></li>
+				<li><a href="#">Get Update</a></li>
+			</ul>
+		</div>
+	</footer>
+</body>
+</html>

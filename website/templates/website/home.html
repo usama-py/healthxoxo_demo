@@ -1,0 +1,160 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HealthXoxo</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+    
+	<link rel="stylesheet" href="{% static 'website/style.css'%}">
+</head>
+<body>
+    <nav style="background-color: #80A1D4; background-clip: content-box; ">
+        <ul style="display: flex; flex-direction: row; gap: 20px; list-style-type: none; justify-content: flex-end; margin: 20px; padding: 20px;">
+            <li><a href="{% url 'home'%}">Home</a></li>
+            <li ><a href="#">Symptoms Checker</a></li>
+            <li><a href="#">Medicine Delivery</a></li>
+            <li><a href="#">About Us</a></li>
+            <li><a href="#">Contact Us</a></li>
+            <li><a href="#">Pincode</a></li>
+            {% if user.is_authenticated %}
+            <li><a href="{% url 'logout' %}">Logout</a></li>
+            {% else %}
+            <li><a href="{% url 'login' %}">Login/Register</a></li>
+            {% endif %}
+            
+        </ul>
+    </nav>
+    <header style="  display: grid; grid-template-columns: repeat(2,1fr); grid-template-areas: 'head image' 'disc image';" >
+        <h1 style="grid-area: head;">HEALTH XOXO</h1>
+        <p style="grid-area: disc;">
+            Health XoXo is an AI-driven Healthcare startup, aiming to democratize and personalize healthcare facilities. We are making strides to develop technology centered on the patient’s requirements to automate the whole experience for better healthcare outcomes. We aim to bring more and more automation to help users to identify the early signs of health issues at the right time at home itself. Our motto is to bring down the turn-around time for doctor-patient consultation and to strengthen and humanize the Doctor-Patient trust relationship.
+        </p>
+        <img style=" height: 80vh; grid-area: image; border-radius: 10%;" width="80%" src="{% static 'website/home.avif'%}" alt="">
+        <textarea style="background-color: white; font-size: 20px; border: 1px solid black; border-radius: 10%;" href="#">What are you looking for?</textarea>
+    </header>
+    <main>
+        <h1>
+            SOLUTION FOR EVERY NEED
+        </h1>
+        <h3>HEALTH SECTION</h3>
+        <div class="health-benefit" style="display: grid; grid-template-columns: repeat(5,1fr);">
+            
+            <div class="card">
+                <img src="{% static 'website/card.avif'%}" alt="">
+                <h5>DIET CHART</h5>
+                <p>
+                    Get your personalized Diet-Chart
+                    </p>
+                <a href="{% url 'dietChart' %}">Read More</a>
+            </div>
+            <div class="card">
+                
+                <img src="{% static 'website/card2.avif'%}" alt="">
+                <h5>BODY-METRICS</h5>
+                <p>Monitor your Body-Metrics in real-time
+                    </p>
+                <a href="">Read More</a>
+            </div>
+            <div class="card">
+                
+                <img src="{% static 'website/card3.jpg'%}" alt="">
+                <h5>FOOD TRACKER</h5>
+                <p>Track your food cycles on daily basis
+                    </p>
+                <a href="{% url 'food_tracker' %}">Read More</a>
+            </div>
+            <div class="card">
+                
+                <img src="{% static 'website/card4.jpg'%}" alt="">
+                <h5>MONITOR FASTING</h5>
+                <p>Fast monitoring becomes easy with our special fasting diet-charts
+                    </p>
+                <a href="{% url 'monitorFast' %}">Read More</a>
+            </div>
+            <div class="card">
+                
+                <img src="{% static 'website/card5.jpg'%}" alt="">
+                <h5>MENTAL PEACE</h5>
+                <p>Enjoy a peaceful enviornment for a better life
+                    </p>
+                <a href="">Read More</a>
+            </div>
+        </div>
+        <h3>COMMUNITY HELP</h3>
+        <div class="community-help" style="display: grid; grid-template-columns: repeat(5,1fr);">
+            <div class="card">
+                <img src="{% static 'website/card5.jpg'%}" alt="">
+                <h5>LEISURE TRAVEL</h5>
+                <p>Leisure Traveling is a natural way to heal from the stresses and strains of everyday life.</p>
+                <a href="">Read More</a>
+            </div>
+            <div class="card">
+                <img src="{% static 'website/card4.jpg'%}" alt="">
+                <h5>EXPERT TALKS</h5>
+                <p>Get an appointment with the healthcare experts</p>
+                <a href="{% url 'expertTalk' %}">Read More</a>
+            </div>
+            <div class="card">
+                <img src="{% static 'website/card3.jpg'%}" alt="">
+                <h5>LIVE INTERACTION</h5>
+                <p>Interact with the experts in real-time live calls</p>
+                <a href="">Read More</a>
+            </div>
+            <div class="card">
+                <img src="{% static 'website/card2.avif'%}" alt="">
+                <h5>HEALTHY HABITS</h5>
+                <p>Get addicted to good habits for your health</p>
+                <a href="{% url 'healthyHabits' %}">Read More</a>
+            </div>
+            <div class="card">
+                <img src="{% static 'website/card.avif'%}" alt="">
+                <h5>AWARENESS CAMPAIGN</h5>
+                <p>Variety of diet-plans with all calorie counts</p>
+                <a href="">Read More</a>
+            </div>
+        </div>
+    </main>
+    <div style="display: grid; grid-template-columns: repeat(3,1fr);">
+        <div class="card">
+            <h5>Our Health Mission</h5>
+            <p>Our experienced medical professionals put your healing needs first. We are proud to provide a high quality level of customer service, medical experience, and commitment to health and wellness to all our patients. Our goal is to make you feel better as quickly as possible.</p>
+        </div>
+        <div class="card">
+            <h5>Experience And Professionalism</h5>
+            <p>With years of experience, our medical team will assess you and create a custom recovery plan that's right for you. We understand the importance of educating you on the most effective ways to take care of your body, so that you can heal quickly.</p>
+        </div>
+        
+        <div class="card">
+            <h5>Physicians Who Care</h5>
+            <p>Not only will our doctors treat your existing conditions, we also work hard to maximize your prevention strategies. We strive to help you improve your quality of life, achieve your wellness goals, and support your best possible life.</p>
+        </div>
+    </div>
+    <footer>
+		<h1 class="col-1">HEALTH XOXO</h1>
+		<div class="col-2">SERVICES
+			<ul style=" margin: 10px; padding: 10px; list-style-type: none;">
+				<li><a href="#">24x7 Doctors</a></li>
+				<li><a href="#">24x7 Hospitals</a></li>
+				<li><a href="#">24x7 Ambulance</a></li>
+				<li><a href="#">Symptoms Checker</a></li>
+			</ul>
+		</div>
+		<div class="col-3">MEMBERSHIP
+			<ul style=" margin: 10px; padding: 10px; list-style-type: none;">
+				<li><a href="#">Free Trial</a></li>
+				<li><a href="#">Premium Membership</a></li>
+			</ul>
+		</div>
+		<div class="col-4">CUSTOMER CARE
+			<ul style=" margin: 10px; padding: 10px; list-style-type: none;">
+				<li><a href="#">Contact Us</a></li>
+				<li><a href="#">About Us</a></li>
+				<li><a href="#">Get Update</a></li>
+			</ul>
+		</div>
+	</footer>
+</body>
+</html>

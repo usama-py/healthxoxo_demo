@@ -1,0 +1,44 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'website/style.css' %}">
+    <title>Healthy Habits</title>
+</head>
+<body>
+    <nav style="background-color: #80A1D4; background-clip: content-box; ">
+        <ul style="display: flex; flex-direction: row; gap: 20px; list-style-type: none; justify-content: flex-end; margin: 20px; padding: 20px;">
+            <li><a href="{% url 'home'%}">Home</a></li>
+            <li ><a href="#">Symptoms Checker</a></li>
+            <li><a href="#">Medicine Delivery</a></li>
+            <li><a href="#">About Us</a></li>
+            <li><a href="#">Contact Us</a></li>
+            <li><a href="#">Pincode</a></li>
+            {% if user.is_authenticated %}
+            <li><a href="{% url 'logout' %}">Logout</a></li>
+            {% else %}
+            <li><a href="{% url 'login' %}">Login/Register</a></li>
+            {% endif %}
+            
+        </ul>
+    </nav>
+    <h1>Eat Healthy, Find Nutrient Values of Your Food</h1>
+    <form method="GET" action="{% url 'healthyHabits' %}">
+        <input type="text" name="query" value="Cheddar cheese">
+        <button type="submit">Search</button>
+    </form>
+  <table>
+    <tr>
+      <th>Nutrient</th>
+      <th>Value</th>
+    </tr>
+    {% for nutrient in nutrients %}
+    <p>{{ nutrient.nutrientName }}: {{ nutrient.value }} {{ nutrient.unitName }}</p>
+{% endfor %}
+  </table>
+
+</body>
+</html>

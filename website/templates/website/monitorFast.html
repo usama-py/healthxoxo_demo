@@ -1,0 +1,115 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Monitor Fasting</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+    
+	<link rel="stylesheet" href="{% static 'website/style.css'%}">
+</head>
+<body>
+    <nav style="background-color: #80A1D4; background-clip: content-box; ">
+        <ul style="display: flex; flex-direction: row; gap: 20px; list-style-type: none; justify-content: flex-end; margin: 20px; padding: 20px;">
+            <li><a href="{% url 'home'%}">Home</a></li>
+            <li ><a href="#">Symptoms Checker</a></li>
+            <li><a href="#">Medicine Delivery</a></li>
+            <li><a href="#">About Us</a></li>
+            <li><a href="#">Contact Us</a></li>
+            <li><a href="#">Pincode</a></li>
+            {% if user.is_authenticated %}
+            <li><a href="{% url 'logout' %}">Logout</a></li>
+            {% else %}
+            <li><a href="{% url 'login' %}">Login/Register</a></li>
+            {% endif %}
+            
+        </ul>
+    </nav>
+    <header style="  display: grid; grid-template-columns: repeat(2,1fr); grid-template-areas: 'head image' 'disc image';" >
+        <h1 style="grid-area: head;">Monitor Fasting</h1>
+        <p style="grid-area: disc;">
+            Fasting has been practiced for centuries for both religious and health purposes. While religious fasts are primarily intended for spiritual purposes, fasting for health benefits has gained popularity in recent years. Fasting for health benefits can take many forms, including intermittent fasting, alternate-day fasting, and extended fasting. Fasting has been linked to a range of health benefits, including weight loss, improved insulin sensitivity, and improved cardiovascular health.
+        </p>
+        <img style=" grid-area: image; border-radius: 10%;" width="100%" src="{% static 'website/monitorfast.avif'%}" alt="">
+        <a style=" background-color: #7E52A0; font-size: 40px; border: 1px solid blue; border-radius: 10%;" href="#">Start For Free</a>
+    </header>
+    <main>
+        <h1>
+            MAKE FASTING A HABIT
+        </h1>
+        <h3>Sample Fasting Diet</h3>
+        <div class="health-benefit" style="display: grid; grid-template-columns: repeat(4,1fr);">
+            
+            <div class="card">
+                <h5>Morning</h5>
+                <ul>
+                    
+
+                    <li>Green tea or black coffee</li>
+                    <li>Glass of water with lemon</li>
+                </ul>
+            </div>
+            <div class="card">
+                <h5>Midday</h5>
+                <ul>
+                    <li>Fresh vegetable juice (no added sugar)</li>
+                    <li>Cup of vegetable broth</li>
+                </ul>
+            </div>
+            <div class="card">
+                <h5>Evening</h5>
+                <ul>
+                    <li>Small serving of protein (such as grilled chicken or fish)</li>
+                    <li>Steamed or raw vegetables (such as broccoli, kale, or spinach)</li>
+                    <li>Small serving of whole grains (such as quinoa or brown rice)</li>
+                    <li>Glass of water with lemon</li>
+                </ul>
+            </div>
+            <div class="card">
+                <h5>Snacks(optional)</h5>
+                <ul>
+                    <li>Handful of nuts or seeds</li>
+                    <li>Small serving of fruit (such as berries or an apple)</li>
+                </ul>
+            </div>
+            
+        </div>
+    </main>
+    <div>
+        <h2>Track Your Fasting Time</h2>
+        
+        {% if user.is_authenticated %}
+        <li> <a href="{% url 'get_and_delete_user_time' %}">Click To Find How Long You Can Fast</a></li>
+        <p>{{ response.content }}</p>
+        {% else %}
+        <li><a href="{% url 'login' %}">Login/Register</a> Please Login To use this service</li>
+        {% endif %}
+    </div>
+    <footer>
+		<h1 class="col-1">HEALTH XOXO</h1>
+		<div class="col-2">SERVICES
+			<ul style=" margin: 10px; padding: 10px; list-style-type: none;">
+				<li><a href="#">24x7 Doctors</a></li>
+				<li><a href="#">24x7 Hospitals</a></li>
+				<li><a href="#">24x7 Ambulance</a></li>
+				<li><a href="#">Symptoms Checker</a></li>
+			</ul>
+		</div>
+		<div class="col-3">MEMBERSHIP
+			<ul style=" margin: 10px; padding: 10px; list-style-type: none;">
+				<li><a href="#">Free Trial</a></li>
+				<li><a href="#">Premium Membership</a></li>
+			</ul>
+		</div>
+		<div class="col-4">CUSTOMER CARE
+			<ul style=" margin: 10px; padding: 10px; list-style-type: none;">
+				<li><a href="#">Contact Us</a></li>
+				<li><a href="#">About Us</a></li>
+				<li><a href="#">Get Update</a></li>
+			</ul>
+		</div>
+	</footer>
+</body>
+</html>
