@@ -1,6 +1,6 @@
 # healthxoxo_demo
 
-another video link cause i fifnt record the first video correctly:
+another video link cause i didnt record the first video correctly:
 
 https://drive.google.com/file/d/1IVwOEhA833bvtVVqqpSsI3qJ9JOF9nx1/view?usp=share_link
 
