@@ -1,8 +1,13 @@
 # healthxoxo_demo
 
-another video link cause i didnt record the first video correctly:
+video link of running app:
 
 https://drive.google.com/file/d/1IVwOEhA833bvtVVqqpSsI3qJ9JOF9nx1/view?usp=share_link
+
+production link of running app:
+
+usama98.pythonanywhere.com
+
 
 Health xoxo assignment app
 
