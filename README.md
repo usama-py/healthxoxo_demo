@@ -6,7 +6,7 @@ https://drive.google.com/file/d/1IVwOEhA833bvtVVqqpSsI3qJ9JOF9nx1/view?usp=share
 
 production link of running app:
 
-usama98.pythonanywhere.com
+http://usama98.pythonanywhere.com/
 
 
 Health xoxo assignment app
